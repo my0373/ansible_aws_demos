@@ -1,0 +1,28 @@
+---
+- name: Create gateway route table
+  amazon.aws.ec2_vpc_route_table:
+    vpc_id: "{{ vpcdata.vpc.id }}"
+    region: "{{ AWS_REGION }}"
+    tags:
+      Name: "f5_public_rt"
+    gateway_id: "{{ vpc_igw.gateway_id }}"
+  register: gateway_route_table
+# resource "aws_route_table" "f5_public_rt" {
+#   vpc_id = aws_vpc.f5_vpc.id
+
+#   tags = {
+#     Name = "f5_public_rt"
+#   }
+# }
+
+# resource "aws_route" "default_route" {
+#   route_table_id         = aws_route_table.f5_public_rt.id
+#   destination_cidr_block = "0.0.0.0/0"
+#   gateway_id             = aws_internet_gateway.f5_internet_gateway.id
+# }
+
+# resource "aws_route_table_association" "f5_public_rta" {
+
+#   subnet_id      = aws_subnet.f5_public_subnet.id
+#   route_table_id = aws_route_table.f5_public_rt.id
+# }
