@@ -6,5 +6,5 @@
     cidr: 10.0.1.16/28
     region: "{{ AWS_REGION }}"
     tags:
-      Name: Database Subnet
+      Name: "{{ VPC_PUBLIC_SUBNET }}"
   register: database_subnet
