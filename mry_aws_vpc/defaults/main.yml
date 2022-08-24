@@ -1,2 +1,5 @@
 ---
-# defaults file for mry_aws_vpc
+# Some sensible defaults
+VPC_NAME: "ansible_network_demo"
+VPC_CIDR: "10.10.0.0/16"
+AWS_REGION: "eu-west-2"

@@ -1,2 +1,9 @@
 ---
-# tasks file for mry_aws_vpc
+- name: create a VPC with dedicated tenancy and a couple of tags
+  amazon.aws.ec2_vpc_net:
+    name: "{{ VPC_NAME }}"
+    cidr_block: "{{ VPC_CIDR }}"
+    region: "{{ AWS_REGION }}"
+    tags:
+      automated: "yes"
+    tenancy: dedicated
