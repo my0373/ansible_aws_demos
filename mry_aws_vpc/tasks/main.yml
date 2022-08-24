@@ -4,6 +4,8 @@
     name: "{{ VPC_NAME }}"
     cidr_block: "{{ VPC_CIDR }}"
     region: "{{ AWS_REGION }}"
+    dns_hostnames: "{{ VPC_DNS_HOSTNAMES }}"
+    dns_support: "{{ VPC_DNS_SUPPORT }}"
     tags:
       automated: "yes"
     tenancy: dedicated

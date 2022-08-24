@@ -3,3 +3,5 @@
 VPC_NAME: "ansible_network_demo"
 VPC_CIDR: "10.10.0.0/16"
 AWS_REGION: "eu-west-2"
+VPC_DNS_HOSTNAMES: yes
+VPC_DNS_SUPPORT: yes
