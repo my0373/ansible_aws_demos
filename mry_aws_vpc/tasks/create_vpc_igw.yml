@@ -4,4 +4,4 @@
     vpc_id: "{{ vpcdata.vpc.id }}"
     region: "{{ AWS_REGION }}"
     state: present
-  register: igw
+  register: vpc_igw
