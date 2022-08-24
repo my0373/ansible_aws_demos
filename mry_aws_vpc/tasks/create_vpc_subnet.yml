@@ -5,6 +5,7 @@
     vpc_id: "{{ vpcdata.vpc.id }}"
     cidr: "{{ VPC_PUBLIC_SUBNET }}"
     region: "{{ AWS_REGION }}"
+    map_public: yes
     tags:
       Name: "{{ VPC_PUBLIC_SUBNET_NAME }}"
   register: database_subnet
