@@ -6,5 +6,5 @@
     cidr: "{{ VPC_PUBLIC_SUBNET }}"
     region: "{{ AWS_REGION }}"
     tags:
-      Name: "{{ VPC_PUBLIC_SUBNET }}"
+      Name: "{{ VPC_PUBLIC_SUBNET_NAME }}"
   register: database_subnet
