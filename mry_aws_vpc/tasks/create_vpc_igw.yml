@@ -1,0 +1,6 @@
+---
+- name: Create Internet gateway with tags
+  amazon.aws.ec2_vpc_igw:
+    vpc_id: "{{ vpcdata.vpc.id }}"
+    state: present
+  register: igw
