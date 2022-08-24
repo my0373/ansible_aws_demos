@@ -1,5 +1,5 @@
 ---
-- name: create a VPC with dedicated tenancy and a couple of tags
+- name: "create the VPC {{ VPC_CIDR }}"
   amazon.aws.ec2_vpc_net:
     name: "{{ VPC_NAME }}"
     cidr_block: "{{ VPC_CIDR }}"
