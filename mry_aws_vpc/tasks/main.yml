@@ -10,6 +10,7 @@
 
 - name: "Collect VPC information"
   amazon.aws.ec2_vpc_net_info:
+    region: "{{ AWS_REGION }}"
 
 - name: Print all available facts
   ansible.builtin.debug:
