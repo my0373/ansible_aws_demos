@@ -3,7 +3,7 @@
   amazon.aws.ec2_vpc_subnet:
     state: present
     vpc_id: "{{ vpcdata.vpc.id }}"
-    cidr: 10.0.1.16/28
+    cidr: "{{ VPC_PUBLIC_SUBNET }}"
     region: "{{ AWS_REGION }}"
     tags:
       Name: "{{ VPC_PUBLIC_SUBNET }}"
