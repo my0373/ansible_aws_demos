@@ -9,7 +9,7 @@
     tenancy: dedicated
 
 - name: "Collect VPC information"
-  ec2_vpc_subnet_facts:
+  amazon.aws.ec2_vpc_subnet_facts:
 
 - name: Print all available facts
   ansible.builtin.debug:
