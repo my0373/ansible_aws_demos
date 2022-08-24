@@ -8,6 +8,9 @@
       automated: "yes"
     tenancy: dedicated
 
+- name: "Collect EC2 information"
+  ec2_instance_facts:
+
 - name: Print all available facts
   ansible.builtin.debug:
     var: ansible_facts
