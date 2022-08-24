@@ -7,3 +7,12 @@
     tags:
       automated: "yes"
     tenancy: dedicated
+
+- name: Print all available facts
+  ansible.builtin.debug:
+    var: ansible_facts
+# - name: Setting stats (not aggregating)
+#   ansible.builtin.set_stats:
+#     data:
+#       the_answer: 42
+#     aggregate: no
