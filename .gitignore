@@ -1,0 +1,5 @@
+*.key
+.idea/
+*.pyc
+id_rsa
+id_dsa
