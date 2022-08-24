@@ -1,24 +1,9 @@
 ---
-- name: "create the VPC {{ VPC_NAME }}"
-  amazon.aws.ec2_vpc_net:
-    name: "{{ VPC_NAME }}"
-    cidr_block: "{{ VPC_CIDR }}"
-    region: "{{ AWS_REGION }}"
-    dns_hostnames: "{{ VPC_DNS_HOSTNAMES }}"
-    dns_support: "{{ VPC_DNS_SUPPORT }}"
-    tags:
-      automated: "yes"
-    tenancy: dedicated
-
-- name: "Collect VPC information"
-  amazon.aws.ec2_vpc_net_info:
-    region: "{{ AWS_REGION }}"
-
-- name: Print all available facts
-  ansible.builtin.debug:
-    var: ansible_facts
-# - name: Setting stats (not aggregating)
-#   ansible.builtin.set_stats:
-#     data:
-#       the_answer: 42
-#     aggregate: no
+# - name: "create the subnet {{ VPC_NAME }}"
+#   amazon.aws.ec2_vpc_subnet:
+#     state: present
+#     vpc_id: vpc-123456
+#     cidr: 10.0.1.16/28
+#     tags:
+#       Name: Database Subnet
+#   register: database_subnet

@@ -21,7 +21,7 @@
 
 - name: Print the VPC_ID
   ansible.builtin.debug:
-    var: vpcdata
+    var: vpcdata.vpc.id
 # - name: Setting stats (not aggregating)
 #   ansible.builtin.set_stats:
 #     data:
