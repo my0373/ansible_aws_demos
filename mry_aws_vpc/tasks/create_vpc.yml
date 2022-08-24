@@ -10,7 +10,6 @@
       automated: "yes"
     tenancy: dedicated
   register: vpcdata
-
 # - name: "Collect VPC information"
 #   amazon.aws.ec2_vpc_net_info:
 #     region: "{{ AWS_REGION }}"
@@ -19,9 +18,9 @@
 #   ansible.builtin.debug:
 #     var: ansible_facts
 
-- name: Print the VPC_ID
-  ansible.builtin.debug:
-    var: vpcdata.vpc.id
+# - name: Print the VPC_ID
+#   ansible.builtin.debug:
+#     var: vpcdata.vpc.id
 # - name: Setting stats (not aggregating)
 #   ansible.builtin.set_stats:
 #     data:
