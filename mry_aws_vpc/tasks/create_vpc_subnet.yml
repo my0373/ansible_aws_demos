@@ -1,5 +1,5 @@
 ---
-- name: "create the subnet {{ WF_VPC_PUBLIC_SUBNET_NAME }}"
+- name: "create the public subnet"
   amazon.aws.ec2_vpc_subnet:
     state: present
     vpc_id: "{{ WF_VPC_ID }}"
