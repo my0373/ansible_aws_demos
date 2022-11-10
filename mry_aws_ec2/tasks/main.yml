@@ -23,3 +23,4 @@
       image_id: "{{ AWS_AMI_IMAGE }}"
       tags:
           Environment: Testing
+      region: "{{ WF_AWS_REGION }}"
