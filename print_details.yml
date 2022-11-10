@@ -1,6 +1,10 @@
 ---
 - hosts: localhost
   tasks:
+    - name: Print all the vpc information
+      ansible.builtin.debug:
+        msg: "{{ WF_VPC }}"
+
     - name: Print only the VPC_ID
       ansible.builtin.debug:
         msg: "{{ WF_VPC.vpc.id }}"
