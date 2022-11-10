@@ -11,6 +11,3 @@
 
 - name: "Calling the Create VPC routes"
   ansible.builtin.import_tasks: create_vpc_routes.yml
-
-- name: "Print the workflow details"
-  ansible.builtin.import_tasks: print_details.yml
