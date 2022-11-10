@@ -8,3 +8,8 @@
     - name: Print only the VPC_ID
       ansible.builtin.debug:
         msg: "{{ WF_VPC.vpc.id }}"
+
+    - name: Print subnet information
+      amazon.aws.ec2_vpc_subnet_info:
+        filters:
+          vpc-id: "{{ WF_VPC.vpc.id }}"
