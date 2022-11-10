@@ -2,9 +2,8 @@
 - name: "Calling the Create VPC tasks"
   ansible.builtin.import_tasks: create_vpc.yml
   tags: provision
-# - name: "Calling the Create VPC Subnet"
-#   ansible.builtin.import_tasks: create_vpc_subnet.yml
-
+- name: "Calling the Create VPC Subnet"
+  ansible.builtin.import_tasks: create_vpc_subnet.yml
 # - name: "Calling the Create VPC Internet Gateway plays"
 #   ansible.builtin.import_tasks: create_vpc_igw.yml
 
