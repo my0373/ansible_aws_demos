@@ -16,7 +16,7 @@
 - name: Storing the VPC_ID
   ansible.builtin.set_stats:
     data:
-      WF_VPC_ID: "{{ vpcdata.vpc.id }}"
+      WF_VPC: "{{ vpcdata }}"
     aggregate: no
 # - name: "Collect VPC information"
 #   amazon.aws.ec2_vpc_net_info:

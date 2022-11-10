@@ -5,7 +5,7 @@
     key_name: "{{ AWS_KEYPAIR }}"
     instance_type: "t2.micro"
     # The default RHEL 9 image
-    image: ami-0e3c9f42c088b4728
+    image: "ami-0e3c9f42c088b4728"
     wait: yes
     group: "default"
     count: 1
