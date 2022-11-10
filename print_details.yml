@@ -14,6 +14,10 @@
     #     region: "{{ WF_AWS_REGION }}"
     #   register: ec2net
 
+    - name: Print the subnet
+      ansible.builtin.debug:
+        msg: "{{ WF_AWS_SUBNET.id }}"
+
     - name: Print the subnet id
       ansible.builtin.debug:
         msg: "{{ WF_AWS_SUBNET.id }}"
