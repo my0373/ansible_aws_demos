@@ -4,7 +4,7 @@
     state: present
     vpc_id: "{{ WF_VPC_ID }}"
     cidr: "{{ WF_VPC_PUBLIC_CIDR }}"
-    region: "{{ AWS_REGION }}"
+    region: "{{ WF_VPC_REGION }}"
     map_public: yes
     tags:
       Name: "{{ WF_VPC_PUBLIC_SUBNET_NAME }}"
