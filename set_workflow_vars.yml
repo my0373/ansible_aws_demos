@@ -19,5 +19,6 @@
           WF_VPC_REGION: "{{ VPC_REGION }}"
           WF_VPC_DNS_HOSTNAMES: yes
           WF_VPC_DNS_SUPPORT: yes
+          WF_VPC_SECURITY_GROUP: "{{ AWS_SECURITY_GROUP }}"
 
         aggregate: no

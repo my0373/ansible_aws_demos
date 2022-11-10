@@ -2,13 +2,13 @@
 - name: "create the VPC {{ WF_VPC_NAME }}"
   amazon.aws.ec2_vpc_net:
     name: "{{ WF_VPC_NAME }}"
-    cidr_block: "{{ VPC_CIDR }}"
-    region: "{{ AWS_REGION }}"
-    dns_hostnames: "{{ VPC_DNS_HOSTNAMES }}"
-    dns_support: "{{ VPC_DNS_SUPPORT }}"
+    cidr_block: "{{ WF_VPC_CIDR }}"
+    region: "{{ WF_VPC_REGION }}"
+    dns_hostnames: "{{ WF_VPC_DNS_HOSTNAMES }}"
+    dns_support: "{{ WF_VPC_DNS_SUPPORT }}"
     tags:
       automated: "yes"
-      workflow_tag: "{{ WF_AWS_TAG }}"
+      workflow_tag: "{{ WF_VPC_NAME }}"
 
     tenancy: dedicated
   register: vpcdata
@@ -16,8 +16,7 @@
 - name: Storing the VPC_ID
   ansible.builtin.set_stats:
     data:
-      WF_VPC: "{{ vpcdata }}"
-      WF_AWS_REGION: "{{ AWS_REGION }}"
+      WF_VPC_ID: "{{ vpcdata.vpc.id }}"
       WF_AWS_SECURITY_GROUP: "{{ AWS_SECURITY_GROUP }}"
     aggregate: no
 # - name: "Collect VPC information"
