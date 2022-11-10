@@ -16,7 +16,7 @@
 
     - name: Print the subnet
       ansible.builtin.debug:
-        msg: "{{ WF_AWS_SUBNET.id }}"
+        msg: "{{ WF_AWS_SUBNET }}"
 
     - name: Print the subnet id
       ansible.builtin.debug:
