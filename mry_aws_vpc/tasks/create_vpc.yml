@@ -1,4 +1,6 @@
 ---
+# Create the demo VPC, collect the VPC information
+# and then store the VPC details.
 - name: "create the VPC {{ WF_VPC_NAME }}"
   amazon.aws.ec2_vpc_net:
     name: "{{ WF_VPC_NAME }}"
@@ -19,16 +21,3 @@
       WF_VPC_ID: "{{ vpcdata.vpc.id }}"
       WF_AWS_SECURITY_GROUP: "{{ AWS_SECURITY_GROUP }}"
     aggregate: no
-# - name: "Collect VPC information"
-#   amazon.aws.ec2_vpc_net_info:
-#     region: "{{ AWS_REGION }}"
-
-# - name: Print all available facts
-#   ansible.builtin.debug:
-#     var: ansible_facts
-
-# - name: Setting stats (not aggregating)
-#   ansible.builtin.set_stats:
-#     data:
-#       the_answer: 42
-#     aggregate: no
