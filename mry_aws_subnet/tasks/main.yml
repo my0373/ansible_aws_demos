@@ -1,0 +1,4 @@
+---
+# tasks file for mry_aws_subnet
+- name: "Calling the Create VPC Subnet"
+  ansible.builtin.import_tasks: create_vpc_subnet.yml
