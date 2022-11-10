@@ -8,6 +8,8 @@
     dns_support: "{{ VPC_DNS_SUPPORT }}"
     tags:
       automated: "yes"
+      workflow_tag: "{{ WF_AWS_TAG }}"
+
     tenancy: dedicated
   register: vpcdata
 # - name: "Collect VPC information"
