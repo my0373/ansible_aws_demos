@@ -16,5 +16,8 @@
         data:
           WF_VPC_NAME: "vpc_{{ DEMO_NAME }}"
           WF_VPC_CIDR: "{{ VPC_CIDR }}"
+          WF_VPC_REGION: "{{ VPC_REGION }}"
+          WF_VPC_DNS_HOSTNAMES: yes
+          WF_VPC_DNS_SUPPORT: yes
 
         aggregate: no
