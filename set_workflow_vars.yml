@@ -16,9 +16,11 @@
         data:
           WF_VPC_NAME: "vpc_{{ DEMO_NAME }}"
           WF_VPC_CIDR: "{{ VPC_CIDR }}"
+          WF_VPC_PUBLIC_CIDR: "{{ VPC_PUBLIC_CIDR }}"
           WF_VPC_REGION: "{{ VPC_REGION }}"
           WF_VPC_DNS_HOSTNAMES: yes
           WF_VPC_DNS_SUPPORT: yes
           WF_VPC_SECURITY_GROUP: "{{ AWS_SECURITY_GROUP }}"
+          WF_VPC_PUBLIC_SUBNET_NAME: "subnet_public_{{ DEMO_NAME }}"
 
         aggregate: no

@@ -1,17 +1,17 @@
 ---
-- name: "create the subnet {{ VPC_NAME }}"
+- name: "create the subnet {{ WF_VPC_NAME }}"
   amazon.aws.ec2_vpc_subnet:
     state: present
-    vpc_id: "{{ vpcdata.vpc.id }}"
-    cidr: "{{ VPC_PUBLIC_SUBNET }}"
+    vpc_id: "{{ WF_VPC_ID }}"
+    cidr: "{{ WF_VPC_PUBLIC_CIDR }}"
     region: "{{ AWS_REGION }}"
     map_public: yes
     tags:
-      Name: "{{ VPC_PUBLIC_SUBNET_NAME }}"
+      Name: "{{ WF_VPC_PUBLIC_SUBNET_NAME }}"
   register: database_subnet
 
 - name: Storing the VPC_ID
   ansible.builtin.set_stats:
     data:
-      WF_AWS_SUBNET: "{{ database_subnet }}"
+      WF_PUBLIC_SUBNET_ID: "{{ database_subnet.subnet.id }}"
     aggregate: no
