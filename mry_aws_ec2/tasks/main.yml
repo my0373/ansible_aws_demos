@@ -1,0 +1,11 @@
+---
+# Create a simple VM
+- amazon.aws.ec2:
+    key_name: "{{ AWS_VM_KEY }}"
+    instance_type: "{{ AWS_INSTANCE_TYPE }}"
+    image: "{{ AWS_AMI_IMAGE }}"
+    wait: yes
+    group: "{{ AWS_SECUIRTY_GROUP }}"
+    count: 1
+    vpc_subnet_id: subnet-29e63245
+    assign_public_ip: yes
