@@ -9,3 +9,7 @@
     tags:
       Name: "{{ VPC_PUBLIC_SUBNET_NAME }}"
   register: database_subnet
+
+- name: Print subnet information
+  amazon.aws.ec2_vpc_subnet_info:
+    region: "{{ database_subnet }}"
