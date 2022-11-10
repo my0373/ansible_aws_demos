@@ -1,0 +1,3 @@
+- name: Print only the VPC_ID
+  ansible.builtin.debug:
+    var: "{{ WF_VPC_ID }}"
