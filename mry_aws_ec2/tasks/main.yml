@@ -1,12 +1,25 @@
 ---
 # Create a simple VM
-- amazon.aws.ec2_instance:
+# - amazon.aws.ec2_instance:
+#       key_name: "{{ AWS_VM_KEY }}"
+#       instance_type: "{{ AWS_INSTANCE_TYPE }}"
+#       image: "{{ AWS_AMI_IMAGE }}"
+#       wait: yes
+#       group: "{{ AWS_SECURITY_GROUP }}"
+#       count: 1
+#       vpc_subnet_id: "{{ WF_AWS_SUBNET.subnet.id }}"
+#       assign_public_ip: yes
+#       region: "{{ WF_AWS_REGION }}"
+
+- name: start an instance with a public IP address
+  amazon.aws.ec2_instance:
+      name: "ansible-public-compute-instance"
       key_name: "{{ AWS_VM_KEY }}"
-      instance_type: "{{ AWS_INSTANCE_TYPE }}"
-      image: "{{ AWS_AMI_IMAGE }}"
-      wait: yes
-      group: "{{ AWS_SECURITY_GROUP }}"
-      count: 1
       vpc_subnet_id: "{{ WF_AWS_SUBNET.subnet.id }}"
-      assign_public_ip: yes
-      region: "{{ WF_AWS_REGION }}"
+      instance_type: "{{ AWS_INSTANCE_TYPE }}"
+      security_group: "{{ AWS_SECURITY_GROUP }}"
+      network:
+          assign_public_ip: true
+      image_id: "{{ AWS_AMI_IMAGE }}"
+      tags:
+          Environment: Testing
