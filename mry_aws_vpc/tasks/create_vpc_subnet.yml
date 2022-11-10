@@ -10,6 +10,6 @@
       Name: "{{ VPC_PUBLIC_SUBNET_NAME }}"
   register: database_subnet
 
-- name: Print subnet information
-  amazon.aws.ec2_vpc_subnet_info:
-    region: "{{ database_subnet }}"
+- name: Print only the VPC_ID
+  ansible.builtin.debug:
+    msg: "{{ database_subnet }}"
