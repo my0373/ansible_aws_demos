@@ -16,4 +16,4 @@
 
     - name: Print only the VPC_ID
       ansible.builtin.debug:
-        msg: "{{ ec2net }}"
+        msg: "{{ WF_AWS_SUBNET }}"

@@ -10,10 +10,6 @@
       Name: "{{ VPC_PUBLIC_SUBNET_NAME }}"
   register: database_subnet
 
-- name: Print only the VPC_ID
-  ansible.builtin.debug:
-    msg: "{{ database_subnet }}"
-
 - name: Storing the VPC_ID
   ansible.builtin.set_stats:
     data:
