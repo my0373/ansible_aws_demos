@@ -1,7 +1,7 @@
 ---
-- name: "create the VPC {{ VPC_NAME }}"
+- name: "create the VPC {{ WF_VPC_NAME }}"
   amazon.aws.ec2_vpc_net:
-    name: "{{ VPC_NAME }}"
+    name: "{{ WF_VPC_NAME }}"
     cidr_block: "{{ VPC_CIDR }}"
     region: "{{ AWS_REGION }}"
     dns_hostnames: "{{ VPC_DNS_HOSTNAMES }}"

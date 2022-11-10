@@ -4,7 +4,17 @@
     - name: Creating workflow variables
       # Use the built in set_stats method to allow us to
       # persist variables throughout the workflow.
+      #
+      # Although many of these variables could be used in a
+      # survey for each playbook. It makes it easier to
+      # read when storing each parameter in a workflow
+      # variable before passing through the playbooks.
+      #
+      # This is just my personal preference :)
+
       ansible.builtin.set_stats:
         data:
           WF_VPC_NAME: "vpc_{{ DEMO_NAME }}"
+          WF_VPC_CIDR: "{{ VPC_CIDR }}"
+
         aggregate: no
