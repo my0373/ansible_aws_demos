@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Creating workflow variables
+      # Use the built in set_stats method to allow us to
+      # persist variables throughout the workflow.
+      ansible.builtin.set_stats:
+        data:
+          WF_VPC_NAME: "vpc_{{ DEMO_NAME }}"
+        aggregate: no
