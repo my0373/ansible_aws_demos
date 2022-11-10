@@ -3,4 +3,4 @@
   tasks:
     - name: Print only the VPC_ID
       ansible.builtin.debug:
-        msg: "{{ WF_VPC }}"
+        msg: "{{ WF_VPC.vpc.id }}"
