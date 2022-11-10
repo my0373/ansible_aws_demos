@@ -17,6 +17,7 @@
   ansible.builtin.set_stats:
     data:
       WF_VPC: "{{ vpcdata }}"
+      WF_AWS_REGION: "{{ AWS_REGION }}"
     aggregate: no
 # - name: "Collect VPC information"
 #   amazon.aws.ec2_vpc_net_info:
