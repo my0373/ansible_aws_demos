@@ -10,7 +10,7 @@
     vpc_az_2_cidr: "10.0.2.0/28"
     vpc_az_3_cidr: "10.0.3.0/28"
     key: "laptop"
-    security_group: "ssh-web"
+    security_group: "default"
     instance_type: "t2.micro"
     ami: "ami-0e3c9f42c088b4728"
   tasks:
