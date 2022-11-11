@@ -1,0 +1,17 @@
+- hosts: localhost
+  vars:
+    vpc_name: "ansitest"
+    vpc_cidr: "10.0.0.0/16"
+    vpc_region: "eu-west-2"
+  tasks:
+    - name: create vpc "{{ vpc_name }}"
+      amazon.aws.ec2_vpc_net:
+        name: "{{ vpc_name }}"
+        cidr_block: "{{ vpc_cidr }}"
+        region: "{{ vpc_region }}"
+      register: vpc
+      # Create vpc
+      # Enable DNS Hostnames
+      # Enable DNS resolution
+      # Create S3 endpoint
+      # Create
