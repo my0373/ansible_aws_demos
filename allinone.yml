@@ -26,7 +26,7 @@
         vpc_id: "{{ vpc.vpc.id }}"
         state: present
         az: "{{ vpc_az_1 }}"
-        cidr: "{{ vpc_az_1_cidsecurity_groupr }}"
+        cidr: "{{ vpc_az_1_cidr }}"
         region: "{{ vpc_region }}"
       register: az1_subnet
 
@@ -39,7 +39,7 @@
         region: "{{ vpc_region }}"
       register: az2_subnet
 
-    - name: create subnet for security_groupthird az
+    - name: create subnet for third az
       amazon.aws.ec2_vpc_subnet:
         vpc_id: "{{ vpc.vpc.id }}"
         state: present
