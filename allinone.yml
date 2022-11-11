@@ -46,12 +46,12 @@
         vpc_id: "{{ vpc.vpc.id }}"
         state: present
       register: igw
-      ap-southeast-3
+      
     - name: create custom route table
       amazon.aws.ec2_vpc_route_table:
         vpc_id: "{{ vpc.vpc.id }}"
         region: "{{ vpc_region }}"
-        subnets:ap-southeast-3
+        subnets:
           - "{{ az1_subnet.subnet.id }}"
           - "{{ az2_subnet.subnet.id }}"
           - "{{ az3_subnet.subnet.id }}"
