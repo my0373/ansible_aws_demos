@@ -45,7 +45,7 @@
       register: az3_subnet
 
     - name: create internet gateway
-      amazon.aws.ec2_vpc_igw:region: "{{ vpc_region }}"
+      amazon.aws.ec2_vpc_igw:
         vpc_id: "{{ vpc.vpc.id }}"
         region: "{{ vpc_region }}"
         state: present
@@ -57,7 +57,7 @@
         region: "{{ vpc_region }}"
         subnets:
           - "{{ az1_subnet.subnet.id }}"
-          - "{{ az2_subnet.subnet.id }}"
+          - "{{ az2_subnet.subnet.id }}"region: "{{ vpc_region }}"
           - "{{ az3_subnet.subnet.id }}"
         routes:
           - dest: 0.0.0.0/0
