@@ -3,6 +3,12 @@
     vpc_name: "ansitest"
     vpc_cidr: "10.0.0.0/16"
     vpc_region: "eu-west-2"
+    vpc_az_1: "eu-west-2a"
+    vpc_az_2: "eu-west-2b"
+    vpc_az_2: "eu-west-2c"
+    vpc_az_1_cidr: "10.0.1.0/28"
+    vpc_az_1_cidr: "10.0.2.0/28"
+    vpc_az_1_cidr: "10.0.3.0/28"
   tasks:
     - name: create vpc "{{ vpc_name }}"
       amazon.aws.ec2_vpc_net:
@@ -10,6 +16,62 @@
         cidr_block: "{{ vpc_cidr }}"
         region: "{{ vpc_region }}"
       register: vpc
+
+    - name: create subnet for first az
+      amazon.aws.ec2_vpc_subnet:
+        vpc_id: "{{ vpc.vpc.id }}"
+        state: present
+        az: "{{ vpc_az_1 }}"
+        cidr: "{{ vpc_az_1_cidr }}"
+      register: az1_subnet
+
+    - name: create subnet for second az
+      amazon.aws.ec2_vpc_subnet:
+        vpc_id: "{{ vpc.vpc.id }}"
+        state: present
+        az: "{{ vpc_az_2 }}"
+        cidr: "{{ vpc_az_2_cidr }}"
+      register: az1_subnet
+
+    - name: create subnet for third az
+      amazon.aws.ec2_vpc_subnet:
+        vpc_id: "{{ vpc.vpc.id }}"
+        state: present
+        az: "{{ vpc_az_3 }}"
+        cidr: "{{ vpc_az_3_cidr }}"
+      register: az3_subnet
+ap-southeast-3
+    - name: create internet gateway
+      amazon.aws.ec2_vpc_igw:
+        vpc_id: "{{ vpc.vpc.id }}"
+        state: present
+      register: igw
+      ap-southeast-3
+    - name: create custom route table
+      amazon.aws.ec2_vpc_route_table:
+        vpc_id: "{{ vpc.vpc.id }}"
+        region: "{{ vpc_region }}"
+        subnets:
+          - "{{ az1_subnet.subnet.id }}"
+          - "{{ az2_subnet.subnet.id }}"
+          - "{{ az3_subnet.subnet.id }}"
+        routes:
+          - dest: 0.0.0.0/0
+            gateway_id: "{{ igw.gateway_id }}"
+
+    - name: create security group
+      amazon.aws.ec2_group:
+        name: ssh-web
+        description: allow ssh and http
+        vpc_id: "{{ vpc.vpc.id }}"
+        region: "{{ vpc_region }}"
+        rules:
+          - proto: tcp
+            ports: 22
+            cidr_ip: 0.0.0.0/0
+          - proto: tcp
+            ports: 80
+            cidr_ip: 0.0.0.0/0
       # Create vpc
       # Enable DNS Hostnames
       # Enable DNS resolution
