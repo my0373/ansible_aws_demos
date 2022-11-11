@@ -55,7 +55,7 @@
         state: present
       register: igw
 
-    - name: create custom routamazon.aws.ec2_instanceance
+    - name: create custom amazon.aws.ec2_instance
       amazon.aws.ec2_instance:
         key_name: "{{ key }}"
         state: present
