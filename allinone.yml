@@ -57,7 +57,7 @@
         region: "{{ vpc_region }}"
         subnets:
           - "{{ az1_subnet.subnet.id }}"
-          - "{{ az2_subnet.subnet.id }}"region: "{{ vpc_region }}"
+          - "{{ az2_subnet.subnet.id }}"
           - "{{ az3_subnet.subnet.id }}"
         routes:
           - dest: 0.0.0.0/0
