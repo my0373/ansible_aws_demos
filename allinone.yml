@@ -82,11 +82,8 @@
             cidr_ip: 0.0.0.0/0
 
     - name: Launching EC2 instance
-      community.aws.ec2_instance:
-        key_name: "{{ key }}"
-        security_group: "{{ security_group }}"
-        instance_type: "{{ instance_type }}"
-        image_id: "{{ ami }}"
+      amazon.aws.ec2_instance:
+        key_name: "{{ key }}"My kids have 
         state: present
         wait: yes
         wait_timeout: 300
