@@ -40,7 +40,7 @@
         az: "{{ vpc_az_3 }}"
         cidr: "{{ vpc_az_3_cidr }}"
       register: az3_subnet
-ap-southeast-3
+
     - name: create internet gateway
       amazon.aws.ec2_vpc_igw:
         vpc_id: "{{ vpc.vpc.id }}"
@@ -51,7 +51,7 @@ ap-southeast-3
       amazon.aws.ec2_vpc_route_table:
         vpc_id: "{{ vpc.vpc.id }}"
         region: "{{ vpc_region }}"
-        subnets:
+        subnets:ap-southeast-3
           - "{{ az1_subnet.subnet.id }}"
           - "{{ az2_subnet.subnet.id }}"
           - "{{ az3_subnet.subnet.id }}"
