@@ -91,6 +91,7 @@
         tags:
           Name: "{{ vpc_name }}_vm"
         detailed_monitoring: no
+        image: "{{ ami }}"
         vpc_subnet_id: "{{ az1_subnet.subnet.id }}"
         network:
           assign_public_ip: yes
