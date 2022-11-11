@@ -9,6 +9,10 @@
     vpc_az_1_cidr: "10.0.1.0/28"
     vpc_az_2_cidr: "10.0.2.0/28"
     vpc_az_3_cidr: "10.0.3.0/28"
+    key: "laptop"
+    security_group: "default"
+    instance_type: "t2.micro"
+    ami: "ami-0e3c9f42c088b4728"
   tasks:
     - name: create vpc "{{ vpc_name }}"
       amazon.aws.ec2_vpc_net:
@@ -76,8 +80,20 @@
           - proto: tcp
             ports: 80
             cidr_ip: 0.0.0.0/0
-      # Create vpc
-      # Enable DNS Hostnames
-      # Enable DNS resolution
-      # Create S3 endpoint
-      # Create
+
+    - name: Launching EC2 instance
+      community.aws.ec2_instance:
+        key_name: "{{ key }}"
+        security_group: "{{ security_group }}"
+        instance_type: "{{ instance_type }}"
+        image_id: "{{ ami }}"
+        state: present
+        wait: yes
+        wait_timeout: 300
+        region: "{{ vpc_region }}"
+        tags:
+          Name: "{{ vpc_name }}_vm"
+        detailed_monitoring: no
+        vpc_subnet_id: "{{ az1_subnet.subnet.id }}"
+        network:
+          assign_public_ip: yes
