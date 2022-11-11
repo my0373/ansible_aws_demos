@@ -83,7 +83,7 @@
 
     - name: Launching EC2 instance
       amazon.aws.ec2_instance:
-        key_name: "{{ key }}"My kids have 
+        key_name: "{{ key }}"
         state: present
         wait: yes
         wait_timeout: 300
