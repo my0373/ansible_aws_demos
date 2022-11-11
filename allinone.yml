@@ -33,7 +33,7 @@
         az: "{{ vpc_az_2 }}"
         cidr: "{{ vpc_az_2_cidr }}"
         region: "{{ vpc_region }}"
-      register: az1_subnet
+      register: az2_subnet
 
     - name: create subnet for third az
       amazon.aws.ec2_vpc_subnet:
@@ -45,7 +45,7 @@
       register: az3_subnet
 
     - name: create internet gateway
-      amazon.aws.ec2_vpc_igw:
+      amazon.aws.ec2_vpc_igw:region: "{{ vpc_region }}"
         vpc_id: "{{ vpc.vpc.id }}"
         region: "{{ vpc_region }}"
         state: present
