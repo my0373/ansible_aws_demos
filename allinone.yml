@@ -23,6 +23,7 @@
         state: present
         az: "{{ vpc_az_1 }}"
         cidr: "{{ vpc_az_1_cidr }}"
+        region: "{{ vpc_region }}"
       register: az1_subnet
 
     - name: create subnet for second az
@@ -31,6 +32,7 @@
         state: present
         az: "{{ vpc_az_2 }}"
         cidr: "{{ vpc_az_2_cidr }}"
+        region: "{{ vpc_region }}"
       register: az1_subnet
 
     - name: create subnet for third az
@@ -39,6 +41,7 @@
         state: present
         az: "{{ vpc_az_3 }}"
         cidr: "{{ vpc_az_3_cidr }}"
+        region: "{{ vpc_region }}"
       register: az3_subnet
 
     - name: create internet gateway
