@@ -55,33 +55,7 @@
         state: present
       register: igw
 
-    - name: create custom route table
-      amazon.aws.ec2_vpc_route_table:
-        vpc_id: "{{ vpc.vpc.id }}"
-        region: "{{ vpc_region }}"
-        subnets:
-          - "{{ az1_subnet.subnet.id }}"
-          - "{{ az2_subnet.subnet.id }}"
-          - "{{ az3_subnet.subnet.id }}"
-        routes:
-          - dest: 0.0.0.0/0
-            gateway_id: "{{ igw.gateway_id }}"
-
-    - name: create security group
-      amazon.aws.ec2_group:
-        name: ssh-web
-        description: allow ssh and http
-        vpc_id: "{{ vpc.vpc.id }}"
-        region: "{{ vpc_region }}"
-        rules:
-          - proto: tcp
-            ports: 22
-            cidr_ip: 0.0.0.0/0
-          - proto: tcp
-            ports: 80
-            cidr_ip: 0.0.0.0/0
-
-    - name: Launching EC2 instance
+    - name: create custom routamazon.aws.ec2_instanceance
       amazon.aws.ec2_instance:
         key_name: "{{ key }}"
         state: present
@@ -91,7 +65,7 @@
         tags:
           Name: "{{ vpc_name }}_vm"
         detailed_monitoring: no
-        image: "{{ ami }}"
+        image_id: "{{ ami }}"
         vpc_subnet_id: "{{ az1_subnet.subnet.id }}"
         network:
           assign_public_ip: yes
